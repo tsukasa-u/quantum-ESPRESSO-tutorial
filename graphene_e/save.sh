@@ -1,4 +1,4 @@
-
+#!/bin/bash
 CMDNAME=`basename $0`
 
 while getopts li:o: OPT
@@ -7,7 +7,7 @@ do
     "i" ) FLG_IN=1 ; IN_NAME="$OPTARG" ;;
     "l" ) FLG_LINE=1 ;;
     "o" ) FLG_OUT=1 ; OUT_NAME="$OPTARG" ;;
-      * ) echo "Usage: $CMDNAME [-l] [-o VALUE]" 1>&2
+      * ) echo "Usage: $CMDNAME [-l] [-o INIPUT_FILE_NAME] [-o OUTPUT_FILE_NAME]" 1>&2
           exit 1 ;;
   esac
 done
@@ -27,7 +27,7 @@ fi
 
 gnuplot << EOF
 set terminal png
-set output "$IN_NAME"
-plot $OUT_NAME OPTION
+set output "$OUT_NAME"
+plot "$IN_NAME" $OPTION
 exit
 EOF
