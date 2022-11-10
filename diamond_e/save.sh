@@ -1,6 +1,9 @@
 #!/bin/bash
 CMDNAME=`basename $0`
 
+FLG_IN=
+FLG_LINE=
+FLG_OUT=
 while getopts li:o: OPT
 do
   case $OPT in
@@ -21,6 +24,7 @@ if [ -z "$FLG_OUT" ]; then
     OUT_NAME="out.png"
 fi
 
+OPTION=
 if [ ! -z "$FLG_LINE" ]; then
     OPTION="with lines"
 fi
@@ -31,3 +35,11 @@ set output "$OUT_NAME"
 plot "$IN_NAME" $OPTION
 exit
 EOF
+
+unset CMDNAME
+unset FLG_IN
+unset FLG_LINE
+unset FLG_OUT
+unset IN_NAME
+unset OUT_NAME
+unset OPTION
