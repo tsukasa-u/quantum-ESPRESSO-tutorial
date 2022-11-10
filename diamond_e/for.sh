@@ -2,8 +2,8 @@
 
 echo > out.txt
 file_name="diamond.scf.in"
-start=${1:-0.5}
-end=${2:-0.6}
+start=${1:-0.2}
+end=${2:-0.3}
 loop=${3:-10}
 echo -e "start\t\t= $start"
 echo -e "end\t\t= $end"
@@ -20,7 +20,7 @@ for i in `seq 1 $loop`
 do
   cnt=`echo "scale=20; $cnt+$inc" | bc`
 
-  replace="C 0.00 0.00 0.00\nC 0.00 $cnt 0.00"
+  replace="C 0.00 0.00 0.00\nC $cnt $cnt $cnt"
   echo 0$cnt `sed "$((column+1)),$((column+2)) c $replace" $file_name | pw.x | grep -a "^\!" | sed -e "s/\![ \t]*total energy[ \t]*=[ \t]*\([-]*[0-9]\+[.]*[0-9]*\) Ry/\1/"` >> out.txt
 done
 
