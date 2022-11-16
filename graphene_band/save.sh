@@ -27,7 +27,7 @@ set xtics ("Γ" 0, "K" x1, "M" x2, "Γ" xmax)
 set arrow 1 nohead from x1,ymin to x1,ymax lt 2
 set arrow 2 nohead from x2,ymin to x2,ymax lt 2
 
-plot 'graphene.band.gnu' using 1:(\$2-ef)
+plot 'graphene.band.gnu' using 1:(\$2-ef) with lines
 
 exit
 EOF
