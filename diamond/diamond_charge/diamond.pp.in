@@ -1,0 +1,13 @@
+&inputpp
+ prefix='diamond',
+ outdir='./work/'
+ plot_num=0
+/
+&plot
+iflag = 3
+output_format = 6
+ fileout='charge.cube'
+ nx = 64
+ ny = 64
+ nz = 64
+/
