@@ -1,0 +1,39 @@
+&control
+ calculation = 'scf'
+ restart_mode='from_scratch',
+ prefix='NV',
+ tstress = .true.
+ tprnfor = .true.
+ pseudo_dir = './',
+ outdir='./work/'
+ disk_io='low'
+ wf_collect=.true.
+/
+ &system
+    ibrav=  1,
+    a = 3.567000,
+    nat= 7,
+    ntyp= 2,
+    ecutwfc = 30.0,
+    ecutrho = 150.0,
+    occupations = 'smearing',
+    degauss = 0.01
+ /
+ &electrons
+    mixing_beta = 0.7
+    conv_thr =  1.0d-8
+ /
+ATOMIC_SPECIES
+C  12.0107  C.pz-van_ak.UPF
+N  14.0067  N.pz-van_ak.UPF
+ATOMIC_POSITIONS {alat}
+C        0.233430127   0.767691063   0.233430127
+C       -0.000247263  -0.000247263   0.510937916
+C        0.510937916  -0.000247263  -0.000247263
+C       -0.000247263   0.510937916  -0.000247263
+C        0.767691063   0.233430127   0.233430127
+C        0.233430127   0.233430127   0.767691063
+N        0.755005293   0.755005293   0.755005293
+K_POINTS {automatic}
+ 7 7 7 1 1 1
+
